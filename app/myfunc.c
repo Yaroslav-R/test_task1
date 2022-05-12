@@ -3,7 +3,7 @@
 #include <math.h>
 
 
-const float EPS = (float)1e-7;
+const float EPS = (float)1e-5;
 
 int check(float a, float b, float c, float x) {
     if (fabs(a * x * x + b * x + c) < EPS)
