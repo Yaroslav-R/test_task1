@@ -13,8 +13,8 @@ extern "C" {
 
 TEST(intRoot, suite1) {
     int cur  = 2;
-    float a  = 1;
-    float b  = -5;
+    float a  = 2;
+    float b  = -6;
     float c  = 4;
     float x1 = 0;
     float x2 = 0;
@@ -30,9 +30,9 @@ TEST(intRoot, suite1) {
 
 TEST(intRoot, suite2) {
     int cur  = 2;
-    float a  = -1;
-    float b  = 9;
-    float c  = -8;
+    float a  = 1;
+    float b  = -4;
+    float c  = 3;
     float x1 = 0;
     float x2 = 0;
 
@@ -47,9 +47,9 @@ TEST(intRoot, suite2) {
 
 TEST(fracRoot, suite1) {
     int cur  = 2;
-    float a  = -7;
-    float b  = 13;
-    float c  = 5;
+    float a  = 2;
+    float b  = -9;
+    float c  = 7;
     float x1 = 0;
     float x2 = 0;
 
@@ -64,9 +64,9 @@ TEST(fracRoot, suite1) {
 
 TEST(fracRoot, suite2) {
     int cur  = 2;
-    float a  = 5;
-    float b  = -11;
-    float c  = 3;
+    float a  = 2;
+    float b  = 3;
+    float c  = 1;
     float x1 = 0;
     float x2 = 0;
 
@@ -81,9 +81,9 @@ TEST(fracRoot, suite2) {
 
 TEST(disk0, suite1) {
     int cur  = 1;
-    float a  = 1;
-    float b  = 2;
-    float c  = 1;
+    float a  = 2;
+    float b  = 4;
+    float c  = 2;
     float x1 = 0;
     float x2 = 0;
 
@@ -98,9 +98,9 @@ TEST(disk0, suite1) {
 
 TEST(disk0, suite2) {
     int cur  = 1;
-    float a  = 2;
-    float b  = -6;
-    float c  = 4.5;
+    float a  = 4.5;
+    float b  = 6;
+    float c  = 2;
     float x1 = 0;
     float x2 = 0;
 
@@ -115,9 +115,9 @@ TEST(disk0, suite2) {
 
 TEST(noRoot, suite1) {
     int cur  = 0;
-    float a  = 1;
-    float b  = -6;
-    float c  = 10;
+    float a  = 2;
+    float b  = 6;
+    float c  = 14;
     float x1 = 0;
     float x2 = 0;
 
@@ -132,9 +132,9 @@ TEST(noRoot, suite1) {
 
 TEST(noRoot, suite2) {
     int cur  = 0;
-    float a  = -7;
-    float b  = 13;
-    float c  = -15;
+    float a  = -10;
+    float b  = -13;
+    float c  = -25;
     float x1 = 0;
     float x2 = 0;
 
@@ -147,58 +147,7 @@ TEST(noRoot, suite2) {
         FAIL();
 } 
 
-TEST(bxc, suite1) {
-    int cur  = 1;
-    float a  = 0;
-    float b  = 2;
-    float c  = 8;
-    float x1 = 0;
-    float x2 = 0;
-
-    int cnt = solve(a, b, c, &x1, &x2);
-
-    if (cnt == cur &&
-        (cur == 0 || (check(a, b, c, x1) && check(a, b, c, x2)) ) )
-        SUCCEED();
-    else
-        FAIL();
-} 
-
-TEST(bxc, suite2) {
-    int cur  = 1;
-    float a  = 0;
-    float b  = 1;
-    float c  = 4.5;
-    float x1 = 0;
-    float x2 = 0;
-
-    int cnt = solve(a, b, c, &x1, &x2);
-
-    if (cnt == cur &&
-        (cur == 0 || (check(a, b, c, x1) && check(a, b, c, x2)) ) )
-        SUCCEED();
-    else
-        FAIL();
-} 
-
-TEST(c, suite1) {
-    int cur  = 0;
-    float a  = 0;
-    float b  = 0;
-    float c  = 2;
-    float x1 = 0;
-    float x2 = 0;
-
-    int cnt = solve(a, b, c, &x1, &x2);
-
-    if (cnt == cur &&
-        (cur == 0 || (check(a, b, c, x1) && check(a, b, c, x2)) ) )
-        SUCCEED();
-    else
-        FAIL();
-} 
-
-TEST(c, suite2) {
+TEST(nullCoeff, suite1) {
     int cur  = 3;
     float a  = 0;
     float b  = 0;
@@ -209,10 +158,10 @@ TEST(c, suite2) {
     int cnt = solve(a, b, c, &x1, &x2);
 
     if (cnt == cur &&
-        (cur == 0 || cur == 3 || 
-        (check(a, b, c, x1) && check(a, b, c, x2)) ) )
+        (cur == 0 || (check(a, b, c, x1) && check(a, b, c, x2)) ) )
         SUCCEED();
     else
         FAIL();
-}
+} 
+
 #endif // QUADR_H
