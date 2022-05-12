@@ -164,4 +164,38 @@ TEST(nullCoeff, suite1) {
         FAIL();
 } 
 
+TEST(nullCoeff, suite2) {
+    int cur  = 1;
+    float a  = 0;
+    float b  = 1;
+    float c  = 2;
+    float x1 = 0;
+    float x2 = 0;
+
+    int cnt = solve(a, b, c, &x1, &x2);
+
+    if (cnt == cur &&
+        (cur == 0 || (check(a, b, c, x1) && check(a, b, c, x2)) ) )
+        SUCCEED();
+    else
+        FAIL();
+} 
+
+TEST(nullCoeff, suite3) {
+    int cur  = 0;
+    float a  = 0;
+    float b  = 0;
+    float c  = 2;
+    float x1 = 0;
+    float x2 = 0;
+
+    int cnt = solve(a, b, c, &x1, &x2);
+
+    if (cnt == cur &&
+        (cur == 0 || (check(a, b, c, x1) && check(a, b, c, x2)) ) )
+        SUCCEED();
+    else
+        FAIL();
+} 
+
 #endif // QUADR_H
